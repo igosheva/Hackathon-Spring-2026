@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Tradex Hackathon Spring 2026 — два дня, одна метрика, бесконечно идей. 27–28 мая 2026." />
+  <title>Tradex Hackathon Spring 2026</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css?v=3" />
+</head>
+<body>
+
+  <!-- ╔═══════════════════════════════════════════════════════════════╗
+       ║ NAVIGATION (появляется после hero)                            ║
+       ╚═══════════════════════════════════════════════════════════════╝ -->
+  <nav class="topnav" id="topnav" aria-label="Навигация по разделам">
+    <div class="topnav__inner">
+      <a href="#hero" class="topnav__logo">
+        <span class="topnav__planet" aria-hidden="true"></span>
+        <span>Tradex</span>
+      </a>
+      <ul class="topnav__links">
+        <li><a href="#about"        class="topnav__link">О хакатоне</a></li>
+        <li><a href="#metric"       class="topnav__link">Метрика</a></li>
+        <li><a href="#users"        class="topnav__link">Пользователи</a></li>
+        <li><a href="#participants" class="topnav__link">Экипаж</a></li>
+        <li><a href="#timeline"     class="topnav__link">Маршрут</a></li>
+        <li><a href="#criteria"     class="topnav__link">Критерии</a></li>
+        <li><a href="#prizes"       class="topnav__link">Призы</a></li>
+        <li><a href="#faq"          class="topnav__link">FAQ</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ╔═══════════════════════════════════════════════════════════════╗
+       ║ 1. HERO                                                       ║
+       ╚═══════════════════════════════════════════════════════════════╝ -->
+  <section id="hero" class="hero">
+    <canvas id="starfield" class="hero__canvas" aria-hidden="true"></canvas>
+    <div class="hero__noise" aria-hidden="true"></div>
+
+    <div class="hero__content">
+      <span class="hero__date-chip">27–28 мая 2026</span>
+      <h1 class="hero__title" data-split>Tradex Hackathon<br/><span class="hero__title-accent">Spring 2026</span></h1>
+      <p class="hero__subtitle">Два дня. Одна метрика. Бесконечно идей.</p>
+
+      <span class="countdown__caption">До окончания хакатона</span>
+      <div class="countdown" id="countdown" aria-label="Время до окончания хакатона">
+        <div class="countdown__unit">
+          <span class="countdown__value" data-unit="days">00</span>
+          <span class="countdown__label">дней</span>
+        </div>
+        <div class="countdown__sep">:</div>
+        <div class="countdown__unit">
+          <span class="countdown__value" data-unit="hours">00</span>
+          <span class="countdown__label">часов</span>
+        </div>
+        <div class="countdown__sep">:</div>
+        <div class="countdown__unit">
+          <span class="countdown__value" data-unit="minutes">00</span>
+          <span class="countdown__label">минут</span>
+        </div>
+        <div class="countdown__sep">:</div>
+        <div class="countdown__unit">
+          <span class="countdown__value" data-unit="seconds">00</span>
+          <span class="countdown__label">секунд</span>
+        </div>
+      </div>
+
+      <a href="#about" class="cta">
+        <span>Узнать всё</span>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
+      </a>
+    </div>
+
+    <div class="hero__scroll-hint" aria-hidden="true">
+      <span>scroll</span>
+      <div class="hero__scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ╔═══════════════════════════════════════════════════════════════╗
+       ║ 2. О ХАКАТОНЕ                                                 ║
+       ╚═══════════════════════════════════════════════════════════════╝ -->
+  <section id="about" class="section about">
+    <div class="container">
+      <div class="section__head" data-reveal>
+        <span class="section__kicker">О хакатоне</span>
+        <h2 class="section__title">За 2 дня собираем то,<br/>что вернёт новичков</h2>
+        <p class="section__lead">
+          Главный фокус — удержание новичков в первую неделю. Никаких космических кораблей в проде:
+          только cheap &amp; fast гипотезы, которые можно проверить за неделю и которые понятны человеку,
+          впервые открывшему приложение.
+        </p>
+      </div>
+
+      <div class="focus-grid">
+        <article class="focus-card" data-reveal>
+          <div class="focus-card__icon">🎯</div>
+          <h3 class="focus-card__title">Удержание</h3>
+          <p class="focus-card__text">Чтобы новичок вернулся завтра и послезавтра, а не закрыл приложение навсегда.</p>
+        </article>
+        <article class="focus-card" data-reveal>
+          <div class="focus-card__icon">⚡</div>
+          <h3 class="focus-card__title">Ранняя вовлечённость</h3>
+          <p class="focus-card__text">Первый «aha-момент» — в первый день, а не на пятой сессии.</p>
+        </article>
+        <article class="focus-card" data-reveal>
+          <div class="focus-card__icon">💸</div>
+          <h3 class="focus-card__title">Ранняя монетизация</h3>
+          <p class="focus-card__text">Гипотезы, которые двигают деньги без давления и продаж в лоб.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ╔═══════════════════════════════════════════════════════════════╗
+       ║ 3. ГЛАВНАЯ МЕТРИКА                                            ║
+       ╚═══════════════════════════════════════════════════════════════╝ -->
+  <section id="metric" class="section metric">
+    <div class="container">
+      <div class="section__head" data-reveal>
+        <span class="section__kicker">Главная метрика</span>
+        <h2 class="section__title">retention_d1_d6</h2>
+        <p class="section__lead">
+          Доля новичков, активных на 6-й день после первого визита.
+          Всё, что мы делаем — двигаем именно её.
+        </p>
+      </div>
+
+      <div class="metric__chart" data-reveal>
+        <svg viewBox="0 0 740 360" class="retention-svg" aria-hidden="true">
+          <defs>
+            <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%"   stop-color="#6366f1"/>
+              <stop offset="100%" stop-color="#00d4ff"/>
+            </linearGradient>
+            <linearGradient id="areaGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%"   stop-color="#6366f1" stop-opacity="0.35"/>
+              <stop offset="100%" stop-color="#00d4ff" stop-opacity="0"/>
+            </linearGradient>
+          </defs>
+
+          <!-- Y-axis grid -->
+          <g class="retention-grid" stroke="rgba(99,102,241,0.1)" stroke-width="1">
+            <line x1="70"  y1="40"  x2="700" y2="40"/>
+            <line x1="70"  y1="105" x2="700" y2="105"/>
+            <line x1="70"  y1="170" x2="700" y2="170"/>
+            <line x1="70"  y1="235" x2="700" y2="235"/>
+            <line x1="70"  y1="300" x2="700" y2="300" stroke="rgba(99,102,241,0.25)"/>
+          </g>
+
+          <!-- Y-axis labels -->
+          <g fill="#6b7299" font-family="Space Grotesk, sans-serif" font-size="12">
+            <text x="60" y="45"  text-anchor="end">100%</text>
+            <text x="60" y="110" text-anchor="end">75%</text>
+            <text x="60" y="175" text-anchor="end">50%</text>
+            <text x="60" y="240" text-anchor="end">25%</text>
+            <text x="60" y="305" text-anchor="end">0%</text>
+          </g>
+
+          <!-- D1...D6 highlighted range -->
+          <rect class="retention-range" x="180" y="40" width="500" height="260"
+                fill="rgba(0,212,255,0.05)" stroke="rgba(0,212,255,0.25)"
+                stroke-width="1" stroke-dasharray="4 4" rx="6"/>
+          <text class="retention-range-label" x="430" y="62"
+                fill="#00d4ff" font-family="Space Grotesk, sans-serif"
+                font-size="11" letter-spacing="2" text-anchor="middle">
+            ЗОНА RETENTION_D1_D6
+          </text>
+
+          <!-- Area under the curve -->
+          <path class="retention-area"
+                d="M 80 40
+                   C 110 40, 130 224, 180 224
+                   C 220 224, 240 247, 280 247
+                   C 320 247, 340 259, 380 259
+                   C 420 259, 440 265, 480 265
+                   C 520 265, 540 270, 580 270
+                   C 620 270, 640 273, 680 273
+                   L 680 300 L 80 300 Z"
+                fill="url(#areaGradient)" opacity="0"/>
+
+          <!-- Retention curve -->
+          <path class="retention-line"
+                d="M 80 40
+                   C 110 40, 130 224, 180 224
+                   C 220 224, 240 247, 280 247
+                   C 320 247, 340 259, 380 259
+                   C 420 259, 440 265, 480 265
+                   C 520 265, 540 270, 580 270
+                   C 620 270, 640 273, 680 273"
+                fill="none" stroke="url(#lineGradient)" stroke-width="3"
+                stroke-linecap="round" stroke-linejoin="round"/>
+
+          <!-- Dots -->
+          <g class="retention-dots">
+            <circle cx="80"  cy="40"  r="6" fill="#0a0e27" stroke="#a1a8c8" stroke-width="2"/>
+            <circle cx="180" cy="224" r="8" fill="#0a0e27" stroke="#6366f1" stroke-width="3"/>
+            <circle cx="280" cy="247" r="6" fill="#0a0e27" stroke="#7d80f0" stroke-width="2"/>
+            <circle cx="380" cy="259" r="6" fill="#0a0e27" stroke="#8b8fec" stroke-width="2"/>
+            <circle cx="480" cy="265" r="6" fill="#0a0e27" stroke="#5fb8e8" stroke-width="2"/>
+            <circle cx="580" cy="270" r="6" fill="#0a0e27" stroke="#00d4ff" stroke-width="2"/>
+            <circle cx="680" cy="273" r="9" fill="#00d4ff" stroke="#00d4ff" stroke-width="3"/>
+          </g>
+
+          <!-- Value labels above points -->
+          <g class="retention-values" font-family="Space Grotesk, sans-serif" font-size="13" font-weight="600">
+            <text x="80"  y="26"  text-anchor="middle" fill="#a1a8c8">100%</text>
+            <text x="180" y="212" text-anchor="middle" fill="#6366f1">29,1%</text>
+            <text x="280" y="235" text-anchor="middle" fill="#a1a8c8">20,2%</text>
+            <text x="380" y="247" text-anchor="middle" fill="#a1a8c8">15,9%</text>
+            <text x="480" y="253" text-anchor="middle" fill="#a1a8c8">13,3%</text>
+            <text x="580" y="258" text-anchor="middle" fill="#a1a8c8">11,6%</text>
+            <text x="680" y="261" text-anchor="middle" fill="#00d4ff">10,5%</text>
+          </g>
+
+          <!-- X-axis labels -->
+          <g class="retention-labels" font-family="Space Grotesk, sans-serif" font-size="14">
+            <text x="80"  y="325" text-anchor="middle" fill="#6b7299">D0</text>
+            <text x="180" y="325" text-anchor="middle" fill="#6366f1" font-weight="600">D1</text>
+            <text x="280" y="325" text-anchor="middle" fill="#6b7299">D2</text>
+            <text x="380" y="325" text-anchor="middle" fill="#6b7299">D3</text>
+            <text x="480" y="325" text-anchor="middle" fill="#6b7299">D4</text>
+            <text x="580" y="325" text-anchor="middle" fill="#6b7299">D5</text>
+            <text x="680" y="325" text-anchor="middle" fill="#00d4ff" font-weight="600">D6</text>
+          </g>
+
+          <text x="385" y="352" text-anchor="middle" fill="#6b7299"
+                font-family="Space Grotesk, sans-serif" font-size="11" letter-spacing="2">
+            ДНИ ПОСЛЕ ПЕРВОГО ВИЗИТА
+          </text>
+        </svg>
+
+        <div class="metric__annotations">
+          <div class="metric__annotation metric__annotation--drop">
+            <span class="metric__annotation-num">−60%</span>
+            <span class="metric__annotation-text">уходят сразу после первой сессии</span>
+          </div>
+          <div class="metric__annotation metric__annotation--tail">
+            <span class="metric__annotation-num">≈40%</span>
+            <span class="metric__annotation-text">доживают c&nbsp;D1 до&nbsp;D6</span>
+          </div>
+        </div>
+
+        <div class="metric__caption">
+          Каждый процентный пункт между&nbsp;D1 и&nbsp;D6 — это&nbsp;живые пользователи, которых вы вернули.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ╔═══════════════════════════════════════════════════════════════╗
+       ║ 4. ПОЛЬЗОВАТЕЛИ                                               ║
+       ╚═══════════════════════════════════════════════════════════════╝ -->
+  <section id="users" class="section users">
+    <div class="container">
+      <div class="section__head" data-reveal>
+        <span class="section__kicker">Аудитория</span>
+        <h2 class="section__title">Кто наши пользователи</h2>
+        <p class="section__lead">
+          Большинство — новички в&nbsp;трейдинге: им важны быстрый результат, понятные действия
+          и&nbsp;ощущение прогресса. Внутри аудитории — два поведенческих профиля.
+        </p>
+      </div>
+
+      <div class="users__grid">
+        <article class="user-card user-card--fast" data-reveal>
+          <div class="user-card__icon">⚡</div>
+          <h3 class="user-card__title">Fast &amp; Emotional</h3>
+          <p class="user-card__text">
+            Любят динамику, эмоции и&nbsp;быстрые сделки. Торгуют короткими сценариями
+            (от&nbsp;5&nbsp;секунд), решают импульсивно и&nbsp;возвращаются за&nbsp;экшеном
+            и&nbsp;быстрым результатом.
+          </p>
+          <span class="user-card__sub">Что для них важно</span>
+          <ul class="user-card__tags">
+            <li>Скорость</li>
+            <li>Эмоции</li>
+            <li>High payout</li>
+            <li>Streaks &amp; FOMO</li>
+            <li>Цикл «действие&nbsp;→&nbsp;результат»</li>
+          </ul>
+        </article>
+
+        <article class="user-card user-card--growth" data-reveal>
+          <div class="user-card__icon">🚀</div>
+          <h3 class="user-card__title">Growth &amp; Mastery</h3>
+          <p class="user-card__text">
+            Воспринимают трейдинг как навык и&nbsp;хотят стать лучшей версией себя.
+            Им важно развитие, прогресс и&nbsp;понимание рынка — чувствовать себя
+            умнее и&nbsp;увереннее.
+          </p>
+          <span class="user-card__sub">Что для них важно</span>
+          <ul class="user-card__tags">
+            <li>Guidance</li>
+            <li>Обучение через практику</li>
+            <li>Прогресс</li>
+            <li>Торговые идеи</li>
+            <li>Ощущение mastery</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="users__context" data-reveal>
+        <span class="users__context-title">Важный контекст</span>
+        <div class="users__context-grid">
+          <div class="context-card">
+            <span class="context-card__icon" aria-hidden="true">😕</span>
+            <p>Многие теряют интерес после первых неудач</p>
+          </div>
+          <div class="context-card">
+            <span class="context-card__icon" aria-hidden="true">⏳</span>
+            <p>Значительная часть теряет баланс уже в&nbsp;первые 24&nbsp;часа</p>
+          </div>
+          <div class="context-card">
+            <span class="context-card__icon" aria-hidden="true">🧭</span>
+            <p>Нужен не&nbsp;терминал, а&nbsp;сценарий: «что делать дальше прямо сейчас»</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ╔═══════════════════════════════════════════════════════════════╗
+       ║ 5. УЧАСТНИКИ И КОМАНДЫ                                        ║
+       ╚═══════════════════════════════════════════════════════════════╝ -->
+  <section id="participants" class="section participants">
+    <div class="container">
+      <div class="section__head" data-reveal>
+        <span class="section__kicker">Экипаж</span>
+        <h2 class="section__title">Те, кто полетят</h2>
+        <p class="section__lead">
+          16 человек ждут запуска двигателей по&nbsp;четырём капсулам.
+        </p>
+      </div>
+
+      <div id="participants-stage" class="participants__stage" data-view="all" data-reveal>
+        <!-- сюда participants.js рендерит карточки -->
+      </div>
+
+      <div class="participants__actions" data-reveal>
+        <button type="button" id="shuffle-btn" class="shuffle-btn" data-state="initial">
+          <span class="shuffle-btn__icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 3 21 3 21 8"/><line x1="4" y1="20" x2="21" y2="3"/><polyline points="21 16 21 21 16 21"/><line x1="15" y1="15" x2="21" y2="21"/><line x1="4" y1="4" x2="9" y2="9"/></svg>
+          </span>
+          <span class="shuffle-btn__label">Распределить по командам</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ╔═══════════════════════════════════════════════════════════════╗
+       ║ 5. TIMELINE                                                   ║
+       ╚═══════════════════════════════════════════════════════════════╝ -->
+  <section id="timeline" class="section timeline">
+    <div class="container">
+      <div class="section__head" data-reveal>
+        <span class="section__kicker">Маршрут</span>
+        <h2 class="section__title">27 — 28 мая</h2>
+      </div>
+
+      <ol class="timeline__list">
+        <li class="timeline__item" data-reveal>
+          <div class="timeline__time"><span class="timeline__day">27.05</span><span class="timeline__hour">12:00 — 14:00</span></div>
+          <div class="timeline__card">
+            <h3>Брейншторм по командам</h3>
+            <p>Знакомимся, разбираем бриф, генерируем идеи и финализируем гипотезу команды.</p>
+          </div>
+        </li>
+        <li class="timeline__item" data-reveal>
+          <div class="timeline__time"><span class="timeline__day">27 — 28.05</span><span class="timeline__hour">14:00 → 16:00</span></div>
+          <div class="timeline__card">
+            <h3>Активная проработка идеи</h3>
+            <p>Дизайн, код, прототип, AI-сборка — что угодно, лишь бы быстро и по делу. Параллельно собираем презентацию.</p>
+          </div>
+        </li>
+        <li class="timeline__item timeline__item--final" data-reveal>
+          <div class="timeline__time"><span class="timeline__day">28.05</span><span class="timeline__hour">16:00 — 18:00</span></div>
+          <div class="timeline__card">
+            <h3>Защита проектов и награждение 🏆</h3>
+            <p>10 минут питч + 10 минут Q&amp;A на команду. Слайды и/или живое демо. В&nbsp;финале — объявление победителей.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ╔═══════════════════════════════════════════════════════════════╗
+       ║ 6. КРИТЕРИИ ОЦЕНКИ                                            ║
+       ╚═══════════════════════════════════════════════════════════════╝ -->
+  <section id="criteria" class="section criteria">
+    <div class="container">
+      <div class="section__head" data-reveal>
+        <span class="section__kicker">Как оцениваем</span>
+        <h2 class="section__title">Пять критериев</h2>
+        <p class="section__lead">
+          Без жюри-баллов и тайных голосований. Веса нужны, чтобы понимать,
+          куда инвестировать время.
+        </p>
+      </div>
+
+      <div class="criteria__grid">
+        <article class="criterion-card" data-reveal>
+          <div class="criterion-card__weight">30%</div>
+          <h3 class="criterion-card__title">Влияние на retention_d1_d6</h3>
+          <p class="criterion-card__text">Решение явно двигает главную метрику, а не «улучшает UX вообще».</p>
+        </article>
+        <article class="criterion-card" data-reveal>
+          <div class="criterion-card__weight">20%</div>
+          <h3 class="criterion-card__title">Cheap &amp; fast</h3>
+          <p class="criterion-card__text">Реально запустить за ≤1 неделю без сложной инфраструктуры.</p>
+        </article>
+        <article class="criterion-card" data-reveal>
+          <div class="criterion-card__weight">20%</div>
+          <h3 class="criterion-card__title">Demo / прототип</h3>
+          <p class="criterion-card__text">Есть что показать руками, не только слайды и красивые слова.</p>
+        </article>
+        <article class="criterion-card" data-reveal>
+          <div class="criterion-card__weight">15%</div>
+          <h3 class="criterion-card__title">Понятность для новичка</h3>
+          <p class="criterion-card__text">Без обучения и онбординга — открыл и сразу понял, что делать.</p>
+        </article>
+        <article class="criterion-card" data-reveal>
+          <div class="criterion-card__weight">15%</div>
+          <h3 class="criterion-card__title">Кайф и креатив</h3>
+          <p class="criterion-card__text">AI, игровые механики, неожиданные идеи, ламповые решения.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ╔═══════════════════════════════════════════════════════════════╗
+       ║ 7. ЧЕК-ЛИСТ ПРЕЗЕНТАЦИИ                                       ║
+       ╚═══════════════════════════════════════════════════════════════╝ -->
+  <section id="checklist" class="section checklist">
+    <div class="container">
+      <div class="section__head" data-reveal>
+        <span class="section__kicker">Финальный питч</span>
+        <h2 class="section__title">Чек-лист презентации</h2>
+        <p class="section__lead">
+          Восемь блоков, которые должны быть в финальном выступлении.
+          В каком порядке — на ваше усмотрение.
+        </p>
+      </div>
+
+      <ul class="checklist__grid">
+        <li class="checklist__item" data-reveal><span class="checklist__check"></span><span>Проблема</span></li>
+        <li class="checklist__item" data-reveal><span class="checklist__check"></span><span>Гипотеза</span></li>
+        <li class="checklist__item" data-reveal><span class="checklist__check"></span><span>Решение</span></li>
+        <li class="checklist__item" data-reveal><span class="checklist__check"></span><span>User flow</span></li>
+        <li class="checklist__item" data-reveal><span class="checklist__check"></span><span>Почему это повлияет на удержание</span></li>
+        <li class="checklist__item" data-reveal><span class="checklist__check"></span><span>Что нужно для запуска</span></li>
+        <li class="checklist__item" data-reveal><span class="checklist__check"></span><span>Как проверить результат</span></li>
+        <li class="checklist__item" data-reveal><span class="checklist__check"></span><span>Demo / прототип / MVP</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ╔═══════════════════════════════════════════════════════════════╗
+       ║ 8. ПРИЗЫ                                                      ║
+       ╚═══════════════════════════════════════════════════════════════╝ -->
+  <section id="prizes" class="section prizes">
+    <div class="container">
+      <div class="section__head" data-reveal>
+        <span class="section__kicker">Что забираете</span>
+        <h2 class="section__title">Призы</h2>
+      </div>
+
+      <div class="prizes__grid">
+        <article class="prize-card prize-card--gold" data-tilt data-reveal>
+          <div class="prize-card__badge">Команде-победителю</div>
+          <div class="prize-card__icon">🏆</div>
+          <h3 class="prize-card__title">+1 день отдыха</h3>
+          <p class="prize-card__text">Дейофф для всей команды. Дополнительный выходной — на ваше усмотрение.</p>
+        </article>
+
+        <article class="prize-card prize-card--cyan" data-tilt data-reveal>
+          <div class="prize-card__badge">Всем участникам</div>
+          <div class="prize-card__icon">🚀</div>
+          <h3 class="prize-card__title">Запустить идею на проде</h3>
+          <p class="prize-card__text">Возможность довести своё решение до реального запуска на продукте.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ╔═══════════════════════════════════════════════════════════════╗
+       ║ 9. FAQ                                                        ║
+       ╚═══════════════════════════════════════════════════════════════╝ -->
+  <section id="faq" class="section faq">
+    <div class="container container--narrow">
+      <div class="section__head" data-reveal>
+        <span class="section__kicker">FAQ</span>
+        <h2 class="section__title">Частые вопросы</h2>
+      </div>
+
+      <div class="faq__list">
+        <details class="faq__item" data-reveal>
+          <summary>Можно ли использовать готовые библиотеки и сервисы?</summary>
+          <div class="faq__answer">Да. Всё, что ускоряет проверку гипотезы — приветствуется: open-source, AI, no-code, готовые API.</div>
+        </details>
+        <details class="faq__item" data-reveal>
+          <summary>Что если за 2 дня не успеем сделать MVP?</summary>
+          <div class="faq__answer">Достаточно кликабельного прототипа в Figma + презентации идеи. Главное — донести гипотезу и план запуска.</div>
+        </details>
+        <details class="faq__item" data-reveal>
+          <summary>Можно ли менять состав команды?</summary>
+          <div class="faq__answer">Состав команд зафиксирован. Кросс-помощь между командами в неформальных вопросах — пожалуйста.</div>
+        </details>
+        <details class="faq__item" data-reveal>
+          <summary>Нужно ли писать код самим или можно «вайбкодить»?</summary>
+          <div class="faq__answer">Любые инструменты на ваше усмотрение: AI, no-code, готовые компоненты, copy-paste из своих проектов.</div>
+        </details>
+        <details class="faq__item" data-reveal>
+          <summary>Как презентовать?</summary>
+          <div class="faq__answer">
+            Формат: 10 минут питч + 10 минут Q&amp;A на команду. Слайды и/или живое демо — на выбор,
+            <strong>но если демо есть — выше шанс на победу</strong>, учитывайте это в решении.
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ╔═══════════════════════════════════════════════════════════════╗
+       ║ 10. ФУТЕР                                                     ║
+       ╚═══════════════════════════════════════════════════════════════╝ -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__logo">
+        <span class="footer__planet" aria-hidden="true"></span>
+        <span>Tradex Hackathon</span>
+      </div>
+      <div class="footer__meta">
+        Сделано с <span class="footer__heart">♥</span> и ☕ &nbsp;·&nbsp; © 2026
+      </div>
+    </div>
+  </footer>
+
+  <!-- GSAP CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/Flip.min.js"></script>
+
+  <!-- App scripts -->
+  <script src="scripts/starfield.js?v=3"></script>
+  <script src="scripts/countdown.js?v=3"></script>
+  <script src="scripts/participants.js?v=3"></script>
+  <script src="scripts/scroll-effects.js?v=3"></script>
+  <script src="scripts/main.js?v=3"></script>
+</body>
+</html>

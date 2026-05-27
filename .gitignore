@@ -1,0 +1,8 @@
+# Локальные настройки Claude Code
+.claude/
+
+# macOS
+.DS_Store
+
+# Логи / временное
+*.log
