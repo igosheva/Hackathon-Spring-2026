@@ -51,6 +51,7 @@ window.TradexScroll = (function () {
 
   // ── Hero: timeline появления ──────────────────────────────────────
   function heroIntro() {
+    if (!document.querySelector('.hero__title')) return; // нет hero-таймера (напр. marathon)
     if (reducedMotion) {
       window.gsap.set('.hero__date-chip, .hero__subtitle, .countdown__caption, .countdown, .cta, .split-char', {
         opacity: 1, y: 0, scale: 1, rotateX: 0,
@@ -101,6 +102,7 @@ window.TradexScroll = (function () {
       { sel: '.focus-grid > .focus-card' },
       { sel: '.users__grid > .user-card' },
       { sel: '.users__context-grid > .context-card' },
+      { sel: '.topics__grid > .topic-card' },
       { sel: '.criteria__grid > .criterion-card' },
       { sel: '.checklist__grid > .checklist__item' },
       { sel: '.prizes__grid > .prize-card' },

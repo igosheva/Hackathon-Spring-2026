@@ -206,6 +206,20 @@ window.TradexParticipants = (function () {
   }
 
   // ── Init ──────────────────────────────────────────────────────────
+  // Авто-раскрытие (для страницы марафона): shuffle → распределение по командам.
+  // Результат детерминирован (из JSON), анимация — «жеребьёвка» уже известного.
+  async function revealTeams() {
+    const stage = document.querySelector(STAGE_SELECTOR);
+    if (!stage || isAnimating || currentView === 'teams') return;
+    isAnimating = true;
+    for (let i = 0; i < 3; i++) {
+      await flipShuffleStep(stage);
+    }
+    await flipToTeams(stage);
+    currentView = 'teams';
+    isAnimating = false;
+  }
+
   async function init() {
     try {
       const res = await fetch(DATA_URL);
@@ -234,5 +248,5 @@ window.TradexParticipants = (function () {
     }
   }
 
-  return { init };
+  return { init, revealTeams };
 })();

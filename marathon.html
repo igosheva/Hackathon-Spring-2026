@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Tradex Hackathon Spring 2026 — арена марафона: составы команд и темы." />
+  <title>Марафон · Tradex Hackathon Spring 2026</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css?v=5" />
+</head>
+<body class="marathon-page">
+
+  <!-- Sub-navigation -->
+  <nav class="subnav" aria-label="Навигация">
+    <a href="index.html" class="topnav__logo">
+      <span class="topnav__planet" aria-hidden="true"></span>
+      <span>Tradex</span>
+    </a>
+    <a href="index.html" class="subnav__back">← На главную</a>
+  </nav>
+
+  <!-- Arena hero -->
+  <header class="arena-hero">
+    <canvas id="starfield" class="hero__canvas" aria-hidden="true"></canvas>
+    <div class="hero__noise" aria-hidden="true"></div>
+    <div class="arena-hero__content">
+      <span class="section__kicker">🚀 Марафон стартовал</span>
+      <h1 class="arena-hero__title" data-reveal>Составы и&nbsp;темы</h1>
+      <p class="arena-hero__sub" data-reveal>
+        Кто с&nbsp;кем летит и&nbsp;какую механику удержания строит.
+      </p>
+    </div>
+  </header>
+
+  <!-- Участники по командам -->
+  <section id="participants" class="section participants">
+    <div class="container">
+      <div class="section__head" data-reveal>
+        <span class="section__kicker">Экипаж</span>
+        <h2 class="section__title">Команды</h2>
+        <p class="section__lead">16 человек — четыре капсулы. Вот кто куда попал.</p>
+      </div>
+
+      <div id="participants-stage" class="participants__stage" data-view="all">
+        <!-- participants.js рендерит карточки -->
+      </div>
+
+      <div class="participants__actions" data-reveal>
+        <button type="button" id="marathon-teams-btn" class="shuffle-btn" data-state="initial">
+          <span class="shuffle-btn__icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 3 21 3 21 8"/><line x1="4" y1="20" x2="21" y2="3"/><polyline points="21 16 21 21 16 21"/><line x1="15" y1="15" x2="21" y2="21"/><line x1="4" y1="4" x2="9" y2="9"/></svg>
+          </span>
+          <span class="shuffle-btn__label">Распределить по командам</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Темы команд -->
+  <section id="topics" class="section topics">
+    <div class="container">
+      <div class="section__head" data-reveal>
+        <span class="section__kicker">Брифы</span>
+        <h2 class="section__title">Тема каждой команды</h2>
+        <p class="section__lead">Четыре команды — четыре темы. Пятая свободна для всех.</p>
+      </div>
+
+      <div id="topics-stage" class="topics__grid" data-state="initial">
+        <article class="topic-card" data-topic="fomo" data-reveal>
+          <div class="topic-card__badge" aria-hidden="true">не разыграна</div>
+          <div class="topic-card__icon">🎰</div>
+          <h3 class="topic-card__title">Азарт, FOMO и «хочу ещё»</h3>
+          <p class="topic-card__text">
+            Механики, усиливающие эмоции, жадность, чувство выгоды и страх упустить —
+            чтобы хотелось открыть сделку прямо сейчас. Сюда же временные бонусы,
+            компенсации и награды после потерь.
+          </p>
+          <p class="topic-card__example"><span>Например:</span> скидка в Яндекс Еде только на ближайший час; x2 опыта на 15 минут в Duolingo.</p>
+        </article>
+
+        <article class="topic-card" data-topic="social" data-reveal>
+          <div class="topic-card__badge" aria-hidden="true">не разыграна</div>
+          <div class="topic-card__icon">👥</div>
+          <h3 class="topic-card__title">Социал и влияние других</h3>
+          <p class="topic-card__text">
+            Механики, показывающие, что на платформе есть другие люди: подсматривать идеи,
+            ориентироваться на других, чувствовать себя частью сообщества.
+          </p>
+          <p class="topic-card__example"><span>Например:</span> копитрейдинг; «это объявление смотрят 14 человек» в Avito.</p>
+        </article>
+
+        <article class="topic-card" data-topic="progress" data-reveal>
+          <div class="topic-card__badge" aria-hidden="true">не разыграна</div>
+          <div class="topic-card__icon">📈</div>
+          <h3 class="topic-card__title">Прогресс и лучшая версия себя</h3>
+          <p class="topic-card__text">
+            Механики, показывающие рост, навыки и достижения — чтобы пользователь
+            чувствовал, что становится сильнее и опытнее как трейдер.
+          </p>
+          <p class="topic-card__example"><span>Например:</span> серии дней и уровни в Duolingo; рост рейтинга в Chess.com.</p>
+        </article>
+
+        <article class="topic-card" data-topic="return" data-reveal>
+          <div class="topic-card__badge" aria-hidden="true">не разыграна</div>
+          <div class="topic-card__icon">🔁</div>
+          <h3 class="topic-card__title">Возврат на следующий день</h3>
+          <p class="topic-card__text">
+            Решения, формирующие привычку возвращаться на платформу снова и снова,
+            особенно на следующий день.
+          </p>
+          <p class="topic-card__example"><span>Например:</span> streak в Duolingo; ежедневные награды в Genshin Impact.</p>
+        </article>
+
+        <article class="topic-card" data-topic="ideas" data-reveal>
+          <div class="topic-card__badge" aria-hidden="true">не разыграна</div>
+          <div class="topic-card__icon">💡</div>
+          <h3 class="topic-card__title">Генерация идей для сделок</h3>
+          <p class="topic-card__text">
+            Механики, подкидывающие новые сценарии, стратегии и идеи для торговли —
+            чтобы появлялось желание экспериментировать и пробовать новое.
+          </p>
+          <p class="topic-card__example"><span>Например:</span> рилсы с рецептами в TikTok; рекомендации видео в YouTube.</p>
+        </article>
+      </div>
+
+      <div class="topics__actions" data-reveal>
+        <button type="button" id="marathon-topics-btn" class="shuffle-btn" data-state="initial">
+          <span class="shuffle-btn__icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 3 21 3 21 8"/><line x1="4" y1="20" x2="21" y2="3"/><polyline points="21 16 21 21 16 21"/><line x1="15" y1="15" x2="21" y2="21"/><line x1="4" y1="4" x2="9" y2="9"/></svg>
+          </span>
+          <span class="shuffle-btn__label">Разыграть темы по командам</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__logo">
+        <span class="footer__planet" aria-hidden="true"></span>
+        <span>Tradex Hackathon</span>
+      </div>
+      <div class="footer__meta">
+        Сделано с <span class="footer__heart">♥</span> и ☕ &nbsp;·&nbsp; © 2026
+      </div>
+    </div>
+  </footer>
+
+  <!-- GSAP CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/Flip.min.js"></script>
+
+  <!-- App scripts -->
+  <script src="scripts/starfield.js?v=5"></script>
+  <script src="scripts/participants.js?v=5"></script>
+  <script src="scripts/topics.js?v=5"></script>
+  <script src="scripts/scroll-effects.js?v=5"></script>
+  <script src="scripts/marathon.js?v=6"></script>
+</body>
+</html>

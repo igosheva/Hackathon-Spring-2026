@@ -6,11 +6,16 @@ document.addEventListener('DOMContentLoaded', async () => {
     await window.TradexParticipants.init();
   }
 
+  if (window.TradexTopics) {
+    await window.TradexTopics.init();
+  }
+
   if (window.TradexScroll) {
     window.TradexScroll.init();
   }
 
   initNav();
+  initMarathonGate();
 
   // smooth scroll для якорей (на случай браузеров без CSS smooth)
   document.querySelectorAll('a[href^="#"]').forEach((a) => {
@@ -57,4 +62,47 @@ function initNav() {
     { rootMargin: '-45% 0px -50% 0px', threshold: 0 }
   );
   sectionToLink.forEach((_, section) => spy.observe(section));
+}
+
+// Кнопка «Старт марафона»: активна с момента старта (или по ?host для ведущего).
+function initMarathonGate() {
+  const btn  = document.getElementById('marathon-btn');
+  const hint = document.getElementById('marathon-hint');
+  if (!btn) return;
+
+  const START = new Date('2026-05-27T12:00:00+03:00');
+  const hostOverride = new URLSearchParams(location.search).has('host');
+
+  function unlock() {
+    btn.dataset.state = 'ready';
+    btn.removeAttribute('aria-disabled');
+    if (hint) hint.textContent = 'Арена открыта — поехали 🚀';
+  }
+
+  function lock() {
+    btn.dataset.state = 'locked';
+    btn.setAttribute('aria-disabled', 'true');
+    // не даём перейти, пока заблокировано
+    btn.addEventListener('click', blockClick);
+  }
+
+  function blockClick(e) {
+    if (btn.dataset.state === 'locked') e.preventDefault();
+  }
+
+  function check() {
+    if (hostOverride || Date.now() >= START.getTime()) {
+      unlock();
+      return true;
+    }
+    return false;
+  }
+
+  lock();
+  if (!check()) {
+    // ждём момента старта, обновляя подсказку
+    const tick = setInterval(() => {
+      if (check()) clearInterval(tick);
+    }, 1000);
+  }
 }

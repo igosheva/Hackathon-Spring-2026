@@ -693,6 +693,95 @@ details summary { list-style: none; cursor: pointer; }
 }
 
 /* ╔══════════════════════════════════════════════════════════════════╗
+   ║  TOPICS                                                          ║
+   ╚══════════════════════════════════════════════════════════════════╝ */
+.topics__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+.topic-card {
+  --topic-accent: var(--accent-violet);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 28px 26px;
+  background: rgba(17, 22, 52, 0.6);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-lg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.topic-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--border-bright);
+}
+
+.topic-card--assigned {
+  border-color: var(--topic-accent);
+  box-shadow: 0 0 32px -8px var(--topic-accent);
+}
+
+.topic-card--rolling {
+  border-color: var(--accent-cyan);
+}
+
+.topic-card__badge {
+  align-self: flex-start;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  padding: 5px 14px;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-pill);
+  background: rgba(99, 102, 241, 0.06);
+  margin-bottom: 18px;
+  transition: color 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+}
+
+.topic-card__icon {
+  font-size: 2.2rem;
+  margin-bottom: 12px;
+}
+
+.topic-card__title {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.topic-card__text {
+  color: var(--text-secondary);
+  font-size: 0.92rem;
+  margin-bottom: 16px;
+}
+
+.topic-card__example {
+  margin-top: auto;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.45;
+  padding-top: 14px;
+  border-top: 1px solid var(--border-card);
+}
+
+.topic-card__example span {
+  color: var(--accent-cyan);
+  font-weight: 500;
+}
+
+.topics__actions {
+  display: flex;
+  justify-content: center;
+}
+
+/* ╔══════════════════════════════════════════════════════════════════╗
    ║  PARTICIPANTS                                                    ║
    ╚══════════════════════════════════════════════════════════════════╝ */
 .participants__actions {
@@ -1301,6 +1390,160 @@ details summary { list-style: none; cursor: pointer; }
   .hero__title { font-size: 2.2rem; }
   .section { padding: 64px 0; }
   .participants__toggle-btn { padding: 10px 18px; font-size: 0.85rem; }
+}
+
+/* ╔══════════════════════════════════════════════════════════════════╗
+   ║  MARATHON CTA (главная)                                          ║
+   ╚══════════════════════════════════════════════════════════════════╝ */
+.marathon-cta__card {
+  position: relative;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: clamp(36px, 6vw, 64px) clamp(28px, 5vw, 56px);
+  text-align: center;
+  background: rgba(17, 22, 52, 0.6);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-lg);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  overflow: hidden;
+}
+
+.marathon-cta__card::before {
+  content: '';
+  position: absolute;
+  inset: -40% -10% auto -10%;
+  height: 80%;
+  background: radial-gradient(ellipse at center, var(--accent-violet) 0%, transparent 65%);
+  opacity: 0.18;
+  pointer-events: none;
+}
+
+.marathon-cta__card .section__kicker,
+.marathon-cta__card .section__title,
+.marathon-cta__card .section__lead {
+  position: relative;
+  z-index: 1;
+}
+
+.marathon-cta__card .section__lead {
+  max-width: 520px;
+  margin: 0 auto 32px;
+}
+
+.cta--lg {
+  position: relative;
+  z-index: 1;
+  font-size: 1.1rem;
+  padding: 18px 40px;
+}
+
+/* locked-состояние кнопки старта */
+.cta[data-state="locked"] {
+  background: rgba(99, 102, 241, 0.12);
+  color: var(--text-muted);
+  box-shadow: none;
+  cursor: not-allowed;
+  border: 1px solid var(--border-subtle);
+}
+
+.cta[data-state="locked"]:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+.cta[data-state="locked"] svg { opacity: 0.4; }
+
+.cta[data-state="ready"] {
+  animation: ctaReadyPulse 2s ease-in-out infinite;
+}
+
+@keyframes ctaReadyPulse {
+  0%, 100% { box-shadow: 0 0 40px rgba(99, 102, 241, 0.35); }
+  50%      { box-shadow: 0 0 64px rgba(0, 212, 255, 0.5); }
+}
+
+.marathon-cta__hint {
+  position: relative;
+  z-index: 1;
+  margin-top: 18px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+}
+
+/* ╔══════════════════════════════════════════════════════════════════╗
+   ║  MARATHON PAGE (marathon.html)                                   ║
+   ╚══════════════════════════════════════════════════════════════════╝ */
+.subnav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px clamp(20px, 4vw, 48px);
+  background: rgba(10, 14, 39, 0.78);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border-card);
+}
+
+.subnav__back {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  padding: 8px 16px;
+  border-radius: var(--radius-pill);
+  transition: color 0.25s ease, background 0.25s ease;
+}
+
+.subnav__back:hover {
+  color: #fff;
+  background: rgba(99, 102, 241, 0.14);
+}
+
+.arena-hero {
+  position: relative;
+  padding: clamp(64px, 12vw, 120px) 24px clamp(48px, 8vw, 80px);
+  text-align: center;
+  overflow: hidden;
+  background: var(--gradient-hero);
+}
+
+.arena-hero .hero__canvas { position: absolute; inset: 0; z-index: 0; }
+
+.arena-hero__content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.arena-hero__title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: clamp(2.2rem, 6vw, 4.5rem);
+  letter-spacing: -0.03em;
+  margin: 18px 0 16px;
+  background: var(--gradient-text);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.arena-hero__sub {
+  color: var(--text-secondary);
+  font-size: clamp(1rem, 1.5vw, 1.25rem);
+}
+
+.marathon-page .participants__stage[data-view="all"] {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
 }
 
 /* ╔══════════════════════════════════════════════════════════════════╗

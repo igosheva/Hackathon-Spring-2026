@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="styles.css?v=3" />
+  <link rel="stylesheet" href="styles.css?v=5" />
 </head>
 <body>
 
@@ -27,7 +27,7 @@
         <li><a href="#about"        class="topnav__link">О хакатоне</a></li>
         <li><a href="#metric"       class="topnav__link">Метрика</a></li>
         <li><a href="#users"        class="topnav__link">Пользователи</a></li>
-        <li><a href="#participants" class="topnav__link">Экипаж</a></li>
+        <li><a href="#marathon"     class="topnav__link">Марафон</a></li>
         <li><a href="#timeline"     class="topnav__link">Маршрут</a></li>
         <li><a href="#criteria"     class="topnav__link">Критерии</a></li>
         <li><a href="#prizes"       class="topnav__link">Призы</a></li>
@@ -327,35 +327,29 @@
   </section>
 
   <!-- ╔═══════════════════════════════════════════════════════════════╗
-       ║ 5. УЧАСТНИКИ И КОМАНДЫ                                        ║
+       ║ 5. СТАРТ МАРАФОНА (CTA → marathon.html)                       ║
        ╚═══════════════════════════════════════════════════════════════╝ -->
-  <section id="participants" class="section participants">
+  <section id="marathon" class="section marathon-cta">
     <div class="container">
-      <div class="section__head" data-reveal>
-        <span class="section__kicker">Экипаж</span>
-        <h2 class="section__title">Те, кто полетят</h2>
+      <div class="marathon-cta__card" data-reveal>
+        <span class="section__kicker">Арена</span>
+        <h2 class="section__title">Готовы к запуску?</h2>
         <p class="section__lead">
-          16 человек ждут запуска двигателей по&nbsp;четырём капсулам.
+          Когда марафон стартует, здесь откроется арена: составы команд
+          и&nbsp;тема каждой из&nbsp;них. Узнайте, с&nbsp;кем летите и&nbsp;что строите.
         </p>
-      </div>
 
-      <div id="participants-stage" class="participants__stage" data-view="all" data-reveal>
-        <!-- сюда participants.js рендерит карточки -->
-      </div>
-
-      <div class="participants__actions" data-reveal>
-        <button type="button" id="shuffle-btn" class="shuffle-btn" data-state="initial">
-          <span class="shuffle-btn__icon" aria-hidden="true">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 3 21 3 21 8"/><line x1="4" y1="20" x2="21" y2="3"/><polyline points="21 16 21 21 16 21"/><line x1="15" y1="15" x2="21" y2="21"/><line x1="4" y1="4" x2="9" y2="9"/></svg>
-          </span>
-          <span class="shuffle-btn__label">Распределить по командам</span>
-        </button>
+        <a href="marathon.html" id="marathon-btn" class="cta cta--lg" data-state="locked" aria-disabled="true">
+          <span class="cta__label">Старт марафона</span>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <p class="marathon-cta__hint" id="marathon-hint">Старт 27 мая в 12:00</p>
       </div>
     </div>
   </section>
 
   <!-- ╔═══════════════════════════════════════════════════════════════╗
-       ║ 5. TIMELINE                                                   ║
+       ║ 6. TIMELINE                                                   ║
        ╚═══════════════════════════════════════════════════════════════╝ -->
   <section id="timeline" class="section timeline">
     <div class="container">
@@ -398,10 +392,6 @@
       <div class="section__head" data-reveal>
         <span class="section__kicker">Как оцениваем</span>
         <h2 class="section__title">Пять критериев</h2>
-        <p class="section__lead">
-          Без жюри-баллов и тайных голосований. Веса нужны, чтобы понимать,
-          куда инвестировать время.
-        </p>
       </div>
 
       <div class="criteria__grid">
@@ -506,7 +496,7 @@
         </details>
         <details class="faq__item" data-reveal>
           <summary>Что если за 2 дня не успеем сделать MVP?</summary>
-          <div class="faq__answer">Достаточно кликабельного прототипа в Figma + презентации идеи. Главное — донести гипотезу и план запуска.</div>
+          <div class="faq__answer">Достаточно прототипа плюс презентации. Прототип может быть в любом формате — скриншоты, картинки, веб-код — что угодно. Главное, чтобы он отражал суть идеи.</div>
         </details>
         <details class="faq__item" data-reveal>
           <summary>Можно ли менять состав команды?</summary>
@@ -548,10 +538,9 @@
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/Flip.min.js"></script>
 
   <!-- App scripts -->
-  <script src="scripts/starfield.js?v=3"></script>
-  <script src="scripts/countdown.js?v=3"></script>
-  <script src="scripts/participants.js?v=3"></script>
-  <script src="scripts/scroll-effects.js?v=3"></script>
-  <script src="scripts/main.js?v=3"></script>
+  <script src="scripts/starfield.js?v=5"></script>
+  <script src="scripts/countdown.js?v=5"></script>
+  <script src="scripts/scroll-effects.js?v=5"></script>
+  <script src="scripts/main.js?v=5"></script>
 </body>
 </html>
