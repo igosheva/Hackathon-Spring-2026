@@ -37,11 +37,28 @@ npx serve .
 
 После изменения — просто перезагрузить страницу.
 
-## Деплой на GitHub Pages
+## Деплой на Render (статический сайт)
 
-1. Закоммитить файлы в репозиторий.
-2. Settings → Pages → Source: ветка `main`, папка `/ (root)`.
-3. Открыть `https://<username>.github.io/<repo>/`.
+В репозитории есть [`render.yaml`](render.yaml) — Render подхватит настройки автоматически.
+
+**Через Blueprint (рекомендуется):**
+1. [dashboard.render.com](https://dashboard.render.com) → **New** → **Blueprint**.
+2. Подключить GitHub-аккаунт и выбрать репозиторий `Hackathon-Spring-2026`.
+3. Render прочитает `render.yaml` и создаст статический сайт. Нажать **Apply**.
+4. Дождаться деплоя — сайт будет доступен по адресу `https://tradex-hackathon-spring-2026.onrender.com`.
+
+**Вручную (если не использовать Blueprint):**
+1. **New** → **Static Site** → выбрать репозиторий.
+2. **Build Command:** оставить пустым.
+3. **Publish Directory:** `.` (корень).
+4. **Create Static Site**.
+
+Каждый `git push` в `main` автоматически передеплоит сайт.
+
+## Деплой на GitHub Pages (альтернатива)
+
+1. Settings → Pages → Source: ветка `main`, папка `/ (root)`.
+2. Открыть `https://<username>.github.io/<repo>/`.
 
 ## Структура
 

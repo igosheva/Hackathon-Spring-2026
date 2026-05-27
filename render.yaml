@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: tradex-hackathon-spring-2026
+    runtime: static
+    buildCommand: ""
+    staticPublishPath: .
+    pullRequestPreviewsEnabled: false
+    headers:
+      - path: /*
+        name: Cache-Control
+        value: public, max-age=300
