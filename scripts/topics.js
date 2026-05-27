@@ -5,7 +5,6 @@
 window.TradexTopics = (function () {
   const STAGE_SELECTOR = '#topics-stage';
   const BUTTON_SELECTOR = '#topics-btn';
-  const TEAMS_URL = 'data/participants.json';
 
   let teams = [];
   let isAnimating = false;
@@ -114,11 +113,10 @@ window.TradexTopics = (function () {
 
   async function init() {
     try {
-      const res = await fetch(TEAMS_URL);
-      const data = await res.json();
-      teams = data.teams || [];
+      const d = await window.TradexData.load();
+      teams = d.teams || [];
     } catch (e) {
-      console.error('[topics] не удалось загрузить команды', e);
+      console.error('[topics] не удалось загрузить распределение', e);
       return;
     }
 

@@ -1,30 +1,15 @@
 {
   "teams": [
-    { "id": "nebula",    "name": "Nebula",    "label": "Группа 1", "color": "#6366f1", "topic": "social" },
-    { "id": "comet",     "name": "Comet",     "label": "Группа 2", "color": "#00d4ff", "topic": "fomo" },
-    { "id": "supernova", "name": "Supernova", "label": "Группа 3", "color": "#f472b6", "topic": "progress" },
-    { "id": "pulsar",    "name": "Pulsar",    "label": "Группа 4", "color": "#10d9a0", "topic": "return" }
+    { "id": "nebula",    "name": "Nebula",    "label": "Группа 1", "color": "#6366f1" },
+    { "id": "comet",     "name": "Comet",     "label": "Группа 2", "color": "#00d4ff" },
+    { "id": "supernova", "name": "Supernova", "label": "Группа 3", "color": "#f472b6" },
+    { "id": "pulsar",    "name": "Pulsar",    "label": "Группа 4", "color": "#10d9a0" }
   ],
-  "freeTopic": "ideas",
-  "participants": [
-    { "name": "Anastasia", "teamId": "nebula" },
-    { "name": "Mikhail",   "teamId": "nebula" },
-    { "name": "Kirill",    "teamId": "nebula" },
-    { "name": "Mila",      "teamId": "nebula" },
-
-    { "name": "Alena",     "teamId": "comet" },
-    { "name": "Igor",      "teamId": "comet" },
-    { "name": "Julia",     "teamId": "comet" },
-    { "name": "Daniil",    "teamId": "comet" },
-
-    { "name": "Aleksandr", "teamId": "supernova" },
-    { "name": "Oleg",      "teamId": "supernova" },
-    { "name": "Anton",     "teamId": "supernova" },
-    { "name": "Andrey",    "teamId": "supernova" },
-
-    { "name": "Eduard",    "teamId": "pulsar" },
-    { "name": "Dmitry",    "teamId": "pulsar" },
-    { "name": "Elfira",    "teamId": "pulsar" },
-    { "name": "Danil",     "teamId": "pulsar" }
-  ]
+  "topics": ["fomo", "social", "progress", "return", "ideas"],
+  "roster": [
+    "Aleksandr", "Alena", "Anastasia", "Andrey", "Anton", "Daniil",
+    "Danil", "Dmitry", "Eduard", "Elfira", "Igor", "Julia",
+    "Kirill", "Mikhail", "Mila", "Oleg"
+  ],
+  "seed": "D1ATRl8jABwDGkReU0hXVAMcARpHXlJIVlQDHAMaRF5RSFVUAG0eFB9QWz9UVAIcABpAL01GA1oIA08="
 }

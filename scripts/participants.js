@@ -5,7 +5,6 @@
 window.TradexParticipants = (function () {
   const STAGE_SELECTOR  = '#participants-stage';
   const BUTTON_SELECTOR = '#shuffle-btn';
-  const DATA_URL = 'data/participants.json';
 
   let data = null;
   let currentView = 'all'; // 'all' | 'teams'
@@ -222,10 +221,9 @@ window.TradexParticipants = (function () {
 
   async function init() {
     try {
-      const res = await fetch(DATA_URL);
-      data = await res.json();
+      data = await window.TradexData.load();
     } catch (e) {
-      console.error('[participants] не удалось загрузить data/participants.json', e);
+      console.error('[participants] не удалось загрузить распределение', e);
       return;
     }
 
