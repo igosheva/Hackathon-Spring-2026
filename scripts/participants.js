@@ -231,10 +231,14 @@ window.TradexParticipants = (function () {
     const btn   = document.querySelector(BUTTON_SELECTOR);
     if (!stage) return;
 
-    renderAll(stage);
+    // Анимация распределения отключена — рендерим сразу итог по командам.
+    // (логика shuffle/Flip оставлена в revealTeams/runDistribution на будущее.)
+    renderTeams(stage);
+    currentView = 'teams';
 
+    /*
+    renderAll(stage);
     if (btn) {
-      // распределение доступно только по специальной ссылке (?host)
       const allowed = new URLSearchParams(location.search).has('host');
       if (!allowed) {
         btn.disabled = true;
@@ -244,6 +248,7 @@ window.TradexParticipants = (function () {
         btn.addEventListener('click', () => runDistribution(btn, label));
       }
     }
+    */
   }
 
   return { init, revealTeams };

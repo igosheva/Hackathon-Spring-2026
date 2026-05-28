@@ -46,17 +46,18 @@
       </div>
 
       <div id="participants-stage" class="participants__stage" data-view="all">
-        <!-- participants.js рендерит карточки -->
+        <!-- participants.js рендерит карточки сразу по командам -->
       </div>
 
+      <!--
+      Анимация распределения отключена — итог показывается сразу.
       <div class="participants__actions" data-reveal>
         <button type="button" id="marathon-teams-btn" class="shuffle-btn" data-state="initial">
-          <span class="shuffle-btn__icon" aria-hidden="true">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 3 21 3 21 8"/><line x1="4" y1="20" x2="21" y2="3"/><polyline points="21 16 21 21 16 21"/><line x1="15" y1="15" x2="21" y2="21"/><line x1="4" y1="4" x2="9" y2="9"/></svg>
-          </span>
+          <span class="shuffle-btn__icon" aria-hidden="true">…shuffle svg…</span>
           <span class="shuffle-btn__label">Распределить по командам</span>
         </button>
       </div>
+      -->
     </div>
   </section>
 
@@ -127,14 +128,15 @@
         </article>
       </div>
 
+      <!--
+      Анимация жеребьёвки тем отключена — назначения видны сразу.
       <div class="topics__actions" data-reveal>
         <button type="button" id="marathon-topics-btn" class="shuffle-btn" data-state="initial">
-          <span class="shuffle-btn__icon" aria-hidden="true">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 3 21 3 21 8"/><line x1="4" y1="20" x2="21" y2="3"/><polyline points="21 16 21 21 16 21"/><line x1="15" y1="15" x2="21" y2="21"/><line x1="4" y1="4" x2="9" y2="9"/></svg>
-          </span>
+          <span class="shuffle-btn__icon" aria-hidden="true">…shuffle svg…</span>
           <span class="shuffle-btn__label">Разыграть темы по командам</span>
         </button>
       </div>
+      -->
     </div>
   </section>
 
@@ -158,9 +160,9 @@
   <!-- App scripts -->
   <script src="scripts/starfield.js?v=5"></script>
   <script src="scripts/distribution.js?v=6"></script>
-  <script src="scripts/participants.js?v=6"></script>
-  <script src="scripts/topics.js?v=6"></script>
+  <script src="scripts/participants.js?v=7"></script>
+  <script src="scripts/topics.js?v=7"></script>
   <script src="scripts/scroll-effects.js?v=5"></script>
-  <script src="scripts/marathon.js?v=6"></script>
+  <script src="scripts/marathon.js?v=7"></script>
 </body>
 </html>

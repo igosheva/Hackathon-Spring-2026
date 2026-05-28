@@ -111,6 +111,28 @@ window.TradexTopics = (function () {
     return playDraw();
   }
 
+  // Мгновенное применение бейджей без slot-machine (текущий режим марафона).
+  function applyFinalAssignments() {
+    const stage = document.querySelector(STAGE_SELECTOR);
+    if (!stage || !teams.length) return;
+    const cards = Array.from(stage.querySelectorAll('.topic-card'));
+    const assignment = buildAssignment(cards);
+    cards.forEach((card) => {
+      const team = assignment.get(card);
+      const badge = card.querySelector('.topic-card__badge');
+      if (team) {
+        setBadgeTeam(badge, team);
+        card.classList.add('topic-card--assigned');
+        card.style.setProperty('--topic-accent', team.color);
+      } else {
+        setBadgeFree(badge);
+        card.classList.add('topic-card--assigned', 'topic-card--free');
+        card.style.setProperty('--topic-accent', 'var(--accent-glow)');
+      }
+    });
+    stage.setAttribute('data-state', 'done');
+  }
+
   async function init() {
     try {
       const d = await window.TradexData.load();
@@ -120,13 +142,17 @@ window.TradexTopics = (function () {
       return;
     }
 
-    // кнопочный режим (если на странице есть кнопка) — иначе раскрытие идёт авто
+    // Анимация жеребьёвки отключена — сразу проставляем финальные бейджи.
+    applyFinalAssignments();
+
+    /*
+    // Кнопочный режим (slot-machine) — оставлено на будущее.
     const btn = document.querySelector(BUTTON_SELECTOR);
     if (!btn) return;
-
     const label = btn.querySelector('.shuffle-btn__label');
     btn.addEventListener('click', () => runDraw(btn, label));
+    */
   }
 
-  return { init, revealAssignments };
+  return { init, revealAssignments, applyFinalAssignments };
 })();
